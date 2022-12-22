@@ -1,0 +1,9 @@
+{
+  "_id": "{{kuuid}}",
+  "name": "{{product}}",
+  "price": {{price}},
+  "category": "{{sic}}",
+  "state": "{{state}}",
+  "available": {{boolean 0.90}},
+  "date": "{{date_iso}}"
+}
