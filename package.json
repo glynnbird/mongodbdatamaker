@@ -4,7 +4,7 @@
   "description": "MongoDB random data generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Glynn Bird <glynn.bird@gmail.com>",
   "license": "Apache-2.0",

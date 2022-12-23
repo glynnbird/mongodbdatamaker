@@ -12,10 +12,11 @@ const url = process.env.MONGO_URL || 'mongodb://0.0.0.0:27017'
 
 // use CA?
 const options = { }
-if (process.env.MONGO_CA) {
+if (process.env.MONGO_CA_FILE) {
+  const ca = fs.readFileSync(process.env.MONGO_CA_FILE, { encoding: 'utf8' }).toString()
   options.ssl = true
   options.sslValidate = true
-  options.sslCA = Buffer.from(process.env.MONGO_CA, 'base64')
+  options.sslCA = Buffer.from(ca, 'base64')
 }
 
 // create MongoDB client
