@@ -1,6 +1,6 @@
 {
   "_id": "{{kuuid}}",
-  "name": "{{product}}",
+  "name": "{{product | toLowerCase}}",
   "price": {{price}},
   "category": "{{sic}}",
   "state": "{{state}}",

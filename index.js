@@ -13,16 +13,26 @@ const url = process.env.MONGO_URL || 'mongodb://0.0.0.0:27017'
 // use CA?
 const options = { }
 if (process.env.MONGO_CA_FILE) {
-  const ca = fs.readFileSync(process.env.MONGO_CA_FILE, { encoding: 'utf8' }).toString()
-  options.ssl = true
-  options.sslValidate = true
-  options.sslCA = Buffer.from(ca, 'base64')
+  options.tls = true
+  options.tlsCAFile = process.env.MONGO_CA_FILE
+  // const opts = {
+  //   tls: true,
+  //   tlsCAFile: CERT_FILE,
+  //   useUnifiedTopology: true,
+  //   useNewUrlParser: true
+  // }
+  //const ca = fs.readFileSync(process.env.MONGO_CA_FILE, { encoding: 'utf8' }).toString()
+  //options.ssl = true
+  //options.sslValidate = true
+  //options.sslCA = Buffer.from(ca, 'base64')
 }
 
 // create MongoDB client
+console.log('url & options', url, options)
 const client = new MongoClient(url, options)
 
 // load datamaker template
+console.log('loading template file', templateFile)
 const template = fs.readFileSync(templateFile, { encoding: 'utf8' }).toString()
 
 // sleep for ms milliseconds
